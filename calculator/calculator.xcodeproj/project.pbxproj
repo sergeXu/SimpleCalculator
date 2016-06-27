@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		381858544B3180B19F316CCB /* Pods-calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-calculator/Pods-calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		B313909350168F130AFA9C9D /* Pods-calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calculator.release.xcconfig"; path = "Pods/Target Support Files/Pods-calculator/Pods-calculator.release.xcconfig"; sourceTree = "<group>"; };
-		BE23D5D11D20B89500602394 /* calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE23D5D11D20B89500602394 /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE23D5D51D20B89500602394 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE23D5D71D20B89500602394 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE23D5D81D20B89500602394 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		BE23D5D21D20B89500602394 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BE23D5D11D20B89500602394 /* calculator.app */,
+				BE23D5D11D20B89500602394 /* Calculator.app */,
 				BE23D5EA1D20B89500602394 /* calculatorTests.xctest */,
 				BE23D5F51D20B89500602394 /* calculatorUITests.xctest */,
 			);
@@ -184,7 +184,7 @@
 			);
 			name = calculator;
 			productName = calculator;
-			productReference = BE23D5D11D20B89500602394 /* calculator.app */;
+			productReference = BE23D5D11D20B89500602394 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BE23D5E91D20B89500602394 /* calculatorTests */ = {
@@ -495,7 +495,7 @@
 				INFOPLIST_FILE = calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.serge.calculator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calculator;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -510,7 +510,7 @@
 				INFOPLIST_FILE = calculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.serge.calculator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Calculator;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
