@@ -261,7 +261,8 @@
     }
     [_eqBtn setTitle:@"=" forState:UIControlStateNormal];
     _eqBtn.titleLabel.font = [UIFont systemFontOfSize:40];
-    _eqBtn.backgroundColor = [UIColor redColor];
+    [_eqBtn setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_eqBtn setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _eqBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_eqBtn.layer setBorderWidth:1.0];
     [_eqBtn addTarget:self  action:@selector(btnEqClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -927,28 +928,36 @@
 {
     if(ABS(self.arg1- (int)self.arg1)<0.0000001)
     {
-        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg1+0.5)]];
+        if(self.arg1<0)
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg1-0.1)]];
+        else
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg1+0.1)]];
     }
     else
-    [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.arg1 ]];
+    [self.resultLabel setText:[NSString stringWithFormat:@"%.4f",self.arg1 ]];
 }
 -(void)showArg2
 {
     if(ABS(self.arg2- (int)self.arg2)<0.0000001)
     {
-        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg2+0.5)]];
+        if(self.arg2<0)
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg2-0.1)]];
+        else
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg2+0.1)]];
     }
     else
-    [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.arg2 ]];
+    [self.resultLabel setText:[NSString stringWithFormat:@"%.4f",self.arg2 ]];
 }
 -(void)showResult
 {
     if(ABS(self.result- (int)self.result)<0.0000001)
     {
-        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.result+0.5)]];
-    }
+        if(self.result<0)
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.result-0.1)]];
         else
-    [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.result+0.1)]];    }
+        else
+    [self.resultLabel setText:[NSString stringWithFormat:@"%.4f",self.result ]];
 }
 //  颜色转换为背景图片
 - (UIImage *)imageWithColor:(UIColor *)color {
