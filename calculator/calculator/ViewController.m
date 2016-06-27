@@ -750,23 +750,110 @@
 }
 - (void)btnAddClick:(UIButton *)sender{
     NSLog(@"add + clicked");
-    self.cal = 1;
-    [self showArg2];
+    //first time
+    if(self.cal==0)
+    {
+        self.cal = 1;
+        [self showArg2];
     }
+    else
+    {
+        if(self.cal==4 && self.arg2 ==0)
+        {
+            [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+        }
+        else
+        {
+            self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            self.arg1 =self.result;
+            self.cal=1;
+            self.arg2 = 0;
+            self.result = 0;
+        }
+
+    }
+}
 - (void)btnSubClick:(UIButton *)sender{
     NSLog(@"add2 + clicked");
-    self.cal = 2;
-    [self showArg2];
+    //first time
+    if(self.cal==0)
+    {
+        self.cal = 2;
+        [self showArg2];
+    }
+    else
+    {
+        if(self.cal==4 && self.arg2 ==0)
+        {
+            [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+        }
+        else
+        {
+            self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            self.arg1 =self.result;
+            self.cal=2;
+            self.arg2 = 0;
+            self.result = 0;
+        }
+        
+    }
+
 }
 - (void)btnMulClick:(UIButton *)sender{
     NSLog(@"add3 + clicked");
-    self.cal = 3;
-    [self showArg2];
+    //first time
+    if(self.cal==0)
+    {
+        self.cal = 3;
+        [self showArg2];
+    }
+    else
+    {
+        if(self.cal==4 && self.arg2 ==0)
+        {
+            [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+        }
+        else
+        {
+            self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            self.arg1 =self.result;
+            self.cal=3;
+            self.arg2 = 0;
+            self.result = 0;
+        }
+        
+    }
+
 }
 - (void)btnDivClick:(UIButton *)sender{
     NSLog(@"add4 + clicked");
-    self.cal = 4;
-    [self showArg2];
+    //first time
+    if(self.cal==0)
+    {
+        self.cal = 4;
+        [self showArg2];
+    }
+    else
+    {
+        if(self.cal==4 && self.arg2 ==0)
+        {
+            [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+        }
+        else
+        {
+            self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            self.arg1 =self.result;
+            self.cal=4;
+            self.arg2 = 0;
+            self.result = 0;
+        }
+        
+    }
+
 }
 - (void)btnCleanClick:(UIButton *)sender{
     [self clean];
@@ -785,8 +872,30 @@
     }
 }
 - (void)btnRemClick:(UIButton *)sender{
-   self.cal = 5;
-    [self showArg2];
+    //first time
+    if(self.cal==0)
+    {
+        self.cal = 5;
+        [self showArg2];
+    }
+    else
+    {
+        if(self.cal==4 && self.arg2 ==0)
+        {
+            [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+        }
+        else
+        {
+            self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
+            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            self.arg1 =self.result;
+            self.cal=5;
+            self.arg2 = 0;
+            self.result = 0;
+        }
+        
+    }
+
 }
 -(void) clean
 {
