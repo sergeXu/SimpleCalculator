@@ -751,18 +751,22 @@
 - (void)btnAddClick:(UIButton *)sender{
     NSLog(@"add + clicked");
     self.cal = 1;
+    [self showArg2];
     }
 - (void)btnSubClick:(UIButton *)sender{
     NSLog(@"add2 + clicked");
     self.cal = 2;
+    [self showArg2];
 }
 - (void)btnMulClick:(UIButton *)sender{
     NSLog(@"add3 + clicked");
     self.cal = 3;
+    [self showArg2];
 }
 - (void)btnDivClick:(UIButton *)sender{
     NSLog(@"add4 + clicked");
     self.cal = 4;
+    [self showArg2];
 }
 - (void)btnCleanClick:(UIButton *)sender{
     [self clean];
@@ -782,6 +786,7 @@
 }
 - (void)btnRemClick:(UIButton *)sender{
    self.cal = 5;
+    [self showArg2];
 }
 -(void) clean
 {
