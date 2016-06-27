@@ -277,8 +277,8 @@
     }
     [_addBtn setTitle:@"+" forState:UIControlStateNormal];
     _addBtn.titleLabel.font = [UIFont systemFontOfSize:40];
-    _addBtn.backgroundColor = [UIColor redColor];
-    _addBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [_addBtn setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_addBtn setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];    _addBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_addBtn.layer setBorderWidth:1.0];
     [_addBtn addTarget:self  action:@selector(btnAddClick:) forControlEvents:UIControlEventTouchUpInside];
     return _addBtn;
@@ -293,7 +293,8 @@
     }
     [_subrctBtn setTitle:@"-" forState:UIControlStateNormal];
     _subrctBtn.titleLabel.font = [UIFont systemFontOfSize:40];
-    _subrctBtn.backgroundColor = [UIColor redColor];
+    [_subrctBtn setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_subrctBtn setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _subrctBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_subrctBtn.layer setBorderWidth:1.0];
     [_subrctBtn addTarget:self  action:@selector(btnSubClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -309,7 +310,8 @@
     }
     [_multBtn setTitle:@"x" forState:UIControlStateNormal];
     _multBtn.titleLabel.font = [UIFont systemFontOfSize:40];
-    _multBtn.backgroundColor = [UIColor redColor];
+    [_multBtn setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_multBtn setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _multBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_multBtn.layer setBorderWidth:1.0];
     [_multBtn addTarget:self  action:@selector(btnMulClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -325,7 +327,8 @@
     }
     [_divBtn setTitle:@"/" forState:UIControlStateNormal];
     _divBtn.titleLabel.font = [UIFont systemFontOfSize:40];
-    _divBtn.backgroundColor = [UIColor redColor];
+    [_divBtn setBackgroundImage:[self imageWithColor:[UIColor redColor]] forState:UIControlStateNormal];
+    [_divBtn setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _divBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_divBtn.layer setBorderWidth:1.0];
     [_divBtn addTarget:self  action:@selector(btnDivClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -343,7 +346,9 @@
     _btn1.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn1 setTitle:@"1" forState:UIControlStateNormal];
-    _btn1.backgroundColor = [UIColor whiteColor];
+  //  _btn1.backgroundColor = [UIColor whiteColor];
+    [_btn1 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn1 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn1.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn1.layer setBorderWidth:1.0];
     [_btn1 addTarget:self  action:@selector(btn1Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -361,7 +366,9 @@
     _btn2.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn2 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn2 setTitle:@"2" forState:UIControlStateNormal];
-    _btn2.backgroundColor = [UIColor whiteColor];
+    //_btn2.backgroundColor = [UIColor whiteColor];
+    [_btn2 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn2 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn2.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn2.layer setBorderWidth:1.0];
     [_btn2 addTarget:self  action:@selector(btn2Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -379,7 +386,8 @@
     _btn3.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn3 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn3 setTitle:@"3" forState:UIControlStateNormal];
-    _btn3.backgroundColor = [UIColor whiteColor];
+    [_btn3 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn3 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn3.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn3.layer setBorderWidth:1.0];
     [_btn3 addTarget:self  action:@selector(btn3Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -397,7 +405,8 @@
     _btn4.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn4 setTitle:@"4" forState:UIControlStateNormal];
-    _btn4.backgroundColor = [UIColor whiteColor];
+    [_btn4 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn4 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn4.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn4.layer setBorderWidth:1.0];
     [_btn4 addTarget:self  action:@selector(btn4Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -415,7 +424,8 @@
     _btn5.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn5 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn5 setTitle:@"5" forState:UIControlStateNormal];
-    _btn5.backgroundColor = [UIColor whiteColor];
+    [_btn5 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn5 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn5.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn5.layer setBorderWidth:1.0];
     [_btn5 addTarget:self  action:@selector(btn5Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -433,7 +443,8 @@
     _btn6.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn6 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn6 setTitle:@"6" forState:UIControlStateNormal];
-    _btn6.backgroundColor = [UIColor whiteColor];
+    [_btn6 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn6 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn6.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn6.layer setBorderWidth:1.0];
     [_btn6 addTarget:self  action:@selector(btn6Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -451,7 +462,8 @@
     _btn7.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn7 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn7 setTitle:@"7" forState:UIControlStateNormal];
-    _btn7.backgroundColor = [UIColor whiteColor];
+    [_btn7 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn7 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn7.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn7.layer setBorderWidth:1.0];
     [_btn7 addTarget:self  action:@selector(btn7Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -469,7 +481,8 @@
     _btn8.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn8 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn8 setTitle:@"8" forState:UIControlStateNormal];
-    _btn8.backgroundColor = [UIColor whiteColor];
+    [_btn8 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn8 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn8.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn8.layer setBorderWidth:1.0];
     [_btn8 addTarget:self  action:@selector(btn8Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -487,7 +500,8 @@
     _btn9.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn9 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn9 setTitle:@"9" forState:UIControlStateNormal];
-    _btn9.backgroundColor = [UIColor whiteColor];
+    [_btn9 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn9 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn9.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn9.layer setBorderWidth:1.0];
     [_btn9 addTarget:self  action:@selector(btn9Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -505,7 +519,8 @@
     _btn0.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btn0 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btn0 setTitle:@"0" forState:UIControlStateNormal];
-    _btn0.backgroundColor = [UIColor whiteColor];
+    [_btn0 setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btn0 setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btn0.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btn0.layer setBorderWidth:1.0];
     [_btn0 addTarget:self  action:@selector(btn0Click:) forControlEvents:UIControlEventTouchUpInside];
@@ -523,7 +538,8 @@
     _btnDot.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btnDot setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btnDot setTitle:@"." forState:UIControlStateNormal];
-    _btnDot.backgroundColor = [UIColor whiteColor];
+    [_btnDot setBackgroundImage:[self imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [_btnDot setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnDot.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnDot.layer setBorderWidth:1.0];
     return _btnDot;
@@ -540,7 +556,8 @@
     _btnClear.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btnClear setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btnClear setTitle:@"AC" forState:UIControlStateNormal];
-    _btnClear.backgroundColor = [UIColor lightGrayColor];
+    [_btnClear setBackgroundImage:[self imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateNormal];
+    [_btnClear setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnClear.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnClear.layer setBorderWidth:1.0];
     [_btnClear addTarget:self  action:@selector(btnCleanClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -558,7 +575,8 @@
     _btnMinus.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btnMinus setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btnMinus setTitle:@"+/-" forState:UIControlStateNormal];
-    _btnMinus.backgroundColor = [UIColor lightGrayColor];
+    [_btnMinus setBackgroundImage:[self imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateNormal];
+    [_btnMinus setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnMinus.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnMinus.layer setBorderWidth:1.0];
     [_btnMinus addTarget:self  action:@selector(btnMinClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -576,7 +594,8 @@
     _btnRemain.titleLabel.font = [UIFont systemFontOfSize:40];
     [_btnRemain setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_btnRemain setTitle:@"%" forState:UIControlStateNormal];
-    _btnRemain.backgroundColor = [UIColor lightGrayColor];
+    [_btnRemain setBackgroundImage:[self imageWithColor:[UIColor lightGrayColor]] forState:UIControlStateNormal];
+    [_btnRemain setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnRemain.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnRemain.layer setBorderWidth:1.0];
     [_btnRemain addTarget:self  action:@selector(btnRemClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -743,7 +762,7 @@
     else
     {
         self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-        [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+        [self showResult];
         [self clean];
         
     }
@@ -765,7 +784,7 @@
         else
         {
             self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self showResult];
             self.arg1 =self.result;
             self.cal=1;
             self.arg2 = 0;
@@ -791,7 +810,7 @@
         else
         {
             self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self showResult];
             self.arg1 =self.result;
             self.cal=2;
             self.arg2 = 0;
@@ -818,7 +837,7 @@
         else
         {
             self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self showResult];
             self.arg1 =self.result;
             self.cal=3;
             self.arg2 = 0;
@@ -845,7 +864,7 @@
         else
         {
             self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self showResult];
             self.arg1 =self.result;
             self.cal=4;
             self.arg2 = 0;
@@ -857,7 +876,7 @@
 }
 - (void)btnCleanClick:(UIButton *)sender{
     [self clean];
-    [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+    [self showResult];
 }
 - (void)btnMinClick:(UIButton *)sender{
     if(self.cal==0)
@@ -887,7 +906,7 @@
         else
         {
             self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
-            [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+            [self showResult];
             self.arg1 =self.result;
             self.cal=5;
             self.arg2 = 0;
@@ -906,10 +925,43 @@
 }
 -(void)showArg1
 {
+    if(ABS(self.arg1- (int)self.arg1)<0.0000001)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg1+0.5)]];
+    }
+    else
     [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.arg1 ]];
 }
 -(void)showArg2
 {
+    if(ABS(self.arg2- (int)self.arg2)<0.0000001)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.arg2+0.5)]];
+    }
+    else
     [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.arg2 ]];
+}
+-(void)showResult
+{
+    if(ABS(self.result- (int)self.result)<0.0000001)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"%d",(int)(self.result+0.5)]];
+    }
+        else
+    [self.resultLabel setText:[NSString stringWithFormat:@"%.2f",self.result ]];
+}
+//  颜色转换为背景图片
+- (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 @end
