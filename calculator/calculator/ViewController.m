@@ -760,6 +760,24 @@
     {
         [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
     }
+    else if(self.cal==5 && self.arg2<0)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+    }
+    //for fun
+    else if(self.cal==5&& self.arg2==0&&self.arg1==0)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"不会!"]];
+        [self clean];
+    }
+//    else if
+//        (self.cal==5 && self.arg2==0 && self.arg1==0)
+//    {
+//        [self.resultLabel setFont:[UIFont systemFontOfSize:40]];
+//        [self.resultLabel setText:[NSString stringWithFormat:@"别闹，给作者点赞去"]];
+//        [self.resultLabel setFont:[UIFont systemFontOfSize:70]];
+//        [self clean];
+//    }
     else
     {
         self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
