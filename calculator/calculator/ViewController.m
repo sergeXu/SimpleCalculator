@@ -46,7 +46,10 @@
 @property (nonatomic, assign ) double arg1;
 @property (nonatomic, assign ) double arg2;
 @property (nonatomic, assign ) double result;
+@property (nonatomic, assign ) double tempArg;
 @property (nonatomic, assign ) int cal;//(nil + - x / %, 0,1,2,3,4,5)
+
+@property (nonatomic, assign ) BOOL isContinue;
 
 -(double) calculatWithSign:(int)cal Arg1:(double)arg1 Arg2:(double)arg2;
 @end
@@ -606,23 +609,25 @@
 -(double) calculatWithSign:(int) cal Arg1:(double) arg1 Arg2:(double) arg2
 {
     if(cal == 1)
-        return (double)(arg1+arg2);
+        self.tempArg = (double)(arg1+arg2);
     else if(cal==2)
-        return (double)(arg1-arg2);
+        self.tempArg = (double)(arg1-arg2);
     else if(cal==3)
-        return (double)(arg1*arg2);
+        self.tempArg = (double)(arg1*arg2);
     else if(cal==4)
-        return (double)(arg1/arg2);
+        self.tempArg =  (double)(arg1/arg2);
     else if(cal==5)
-        return (double)((int)arg1%(int)arg2);
+        self.tempArg = (double)((int)arg1%(int)arg2);
     else{
         NSLog(@"运算符无效 为%d",cal);
         return 0;
     }
+    return self.tempArg;
 }
 #pragma mark - 按钮事件
 - (void)btn1Click:(UIButton *)sender{
     NSLog(@"BTN 1 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +1;
@@ -636,6 +641,7 @@
 }
 - (void)btn2Click:(UIButton *)sender{
     NSLog(@"BTN 2 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +2;
@@ -649,6 +655,7 @@
 }
 - (void)btn3Click:(UIButton *)sender{
     NSLog(@"BTN 3 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +3;
@@ -662,6 +669,7 @@
 }
 - (void)btn4Click:(UIButton *)sender{
     NSLog(@"BTN 4 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +4;
@@ -675,6 +683,7 @@
 }
 - (void)btn5Click:(UIButton *)sender{
     NSLog(@"BTN 5 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +5;
@@ -688,6 +697,7 @@
 }
 - (void)btn6Click:(UIButton *)sender{
     NSLog(@"BTN 6 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +6;
@@ -701,6 +711,7 @@
 }
 - (void)btn7Click:(UIButton *)sender{
     NSLog(@"BTN 7 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +7;
@@ -714,6 +725,7 @@
 }
 - (void)btn8Click:(UIButton *)sender{
     NSLog(@"BTN 8 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +8;
@@ -727,6 +739,7 @@
 }
 - (void)btn9Click:(UIButton *)sender{
     NSLog(@"BTN 9 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +9;
@@ -740,6 +753,7 @@
 }
 - (void)btn0Click:(UIButton *)sender{
     NSLog(@"BTN 0 clicked");
+    self.isContinue=NO;
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 ;
@@ -780,6 +794,7 @@
 //    }
     else
     {
+        self.isContinue=YES;
         self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
         [self showResult];
         [self clean];
@@ -788,6 +803,12 @@
 }
 - (void)btnAddClick:(UIButton *)sender{
     NSLog(@"add + clicked");
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 1;
+        return ;
+    }
     //first time
     if(self.cal==0)
     {
@@ -814,6 +835,13 @@
 }
 - (void)btnSubClick:(UIButton *)sender{
     NSLog(@"add2 + clicked");
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 2;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -842,6 +870,13 @@
 - (void)btnMulClick:(UIButton *)sender{
     NSLog(@"add3 + clicked");
     //first time
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 3;
+        return ;
+    }
+
     if(self.cal==0)
     {
         self.cal = 3;
@@ -868,6 +903,13 @@
 }
 - (void)btnDivClick:(UIButton *)sender{
     NSLog(@"add4 + clicked");
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 4;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -895,6 +937,7 @@
 }
 - (void)btnCleanClick:(UIButton *)sender{
     [self clean];
+    self.isContinue=NO;
     [self showResult];
 }
 - (void)btnMinClick:(UIButton *)sender{
@@ -910,6 +953,13 @@
     }
 }
 - (void)btnRemClick:(UIButton *)sender{
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 5;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -941,6 +991,7 @@
     self.arg2= 0;
     self.cal = 0;
     self.result = 0;
+  //  self.isContinue=NO;
 }
 -(void)showArg1
 {
