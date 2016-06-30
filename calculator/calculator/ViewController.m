@@ -51,6 +51,7 @@
 
 @property (nonatomic, assign ) BOOL isContinue;
 @property (nonatomic, assign ) BOOL isDotMode;
+@property (nonatomic, assign) long dotTemp;
 
 -(double) calculatWithSign:(int)cal Arg1:(double)arg1 Arg2:(double)arg2;
 @end
@@ -547,6 +548,7 @@
     [_btnDot setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnDot.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnDot.layer setBorderWidth:1.0];
+    [_btn0 addTarget:self  action:@selector(btnDotClick:) forControlEvents:UIControlEventTouchUpInside];
     return _btnDot;
     
 }
@@ -945,6 +947,9 @@
     self.isContinue=NO;
     [self showResult];
 }
+- (void)btnDotClick:(UIButton *)sender{
+    self.isDotMode = YES;
+}
 - (void)btnMinClick:(UIButton *)sender{
     if(self.cal==0)
     {
@@ -1051,7 +1056,28 @@
 }
 -(void) symbleButtonClick
 {
+    
+    if(self.isDotMode)
+    {
+        if(self.cal==0)
+        {
+            self.arg1 += [self intToDoublePart:self.dotTemp];
+        }
+        else{
+            self.arg2 += [self intToDoublePart:self.dotTemp];
+        }
+    }
     self.isDotMode=false;
+    self.dotTemp=0;
+}
+-(double)intToDoublePart:(long) num
+{
+    double i=num;
+    while (i>=1)
+    {
+        i/=10;
+    }
+    return i;
 }
 -(void) nunberButtonClick
 {
