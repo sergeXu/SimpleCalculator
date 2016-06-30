@@ -50,6 +50,7 @@
 @property (nonatomic, assign ) int cal;//(nil + - x / %, 0,1,2,3,4,5)
 
 @property (nonatomic, assign ) BOOL isContinue;
+@property (nonatomic, assign ) BOOL isDotMode;
 
 -(double) calculatWithSign:(int)cal Arg1:(double)arg1 Arg2:(double)arg2;
 @end
@@ -627,7 +628,7 @@
 #pragma mark - 按钮事件
 - (void)btn1Click:(UIButton *)sender{
     NSLog(@"BTN 1 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +1;
@@ -641,7 +642,7 @@
 }
 - (void)btn2Click:(UIButton *)sender{
     NSLog(@"BTN 2 clicked");
-    self.isContinue=NO;
+   [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +2;
@@ -655,7 +656,7 @@
 }
 - (void)btn3Click:(UIButton *)sender{
     NSLog(@"BTN 3 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +3;
@@ -669,7 +670,7 @@
 }
 - (void)btn4Click:(UIButton *)sender{
     NSLog(@"BTN 4 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +4;
@@ -683,7 +684,7 @@
 }
 - (void)btn5Click:(UIButton *)sender{
     NSLog(@"BTN 5 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +5;
@@ -697,7 +698,7 @@
 }
 - (void)btn6Click:(UIButton *)sender{
     NSLog(@"BTN 6 clicked");
-    self.isContinue=NO;
+   [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +6;
@@ -711,7 +712,7 @@
 }
 - (void)btn7Click:(UIButton *)sender{
     NSLog(@"BTN 7 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +7;
@@ -725,7 +726,7 @@
 }
 - (void)btn8Click:(UIButton *)sender{
     NSLog(@"BTN 8 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +8;
@@ -739,7 +740,7 @@
 }
 - (void)btn9Click:(UIButton *)sender{
     NSLog(@"BTN 9 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +9;
@@ -753,7 +754,7 @@
 }
 - (void)btn0Click:(UIButton *)sender{
     NSLog(@"BTN 0 clicked");
-    self.isContinue=NO;
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 ;
@@ -803,6 +804,7 @@
 }
 - (void)btnAddClick:(UIButton *)sender{
     NSLog(@"add + clicked");
+    [self symbleButtonClick];
     if(self.isContinue)
     {
         self.arg1 = self.tempArg;
@@ -835,6 +837,7 @@
 }
 - (void)btnSubClick:(UIButton *)sender{
     NSLog(@"add2 + clicked");
+    [self symbleButtonClick];
     if(self.isContinue)
     {
         self.arg1 = self.tempArg;
@@ -869,6 +872,7 @@
 }
 - (void)btnMulClick:(UIButton *)sender{
     NSLog(@"add3 + clicked");
+    [self symbleButtonClick];
     //first time
     if(self.isContinue)
     {
@@ -903,6 +907,7 @@
 }
 - (void)btnDivClick:(UIButton *)sender{
     NSLog(@"add4 + clicked");
+    [self symbleButtonClick];
     if(self.isContinue)
     {
         self.arg1 = self.tempArg;
@@ -953,6 +958,7 @@
     }
 }
 - (void)btnRemClick:(UIButton *)sender{
+    [self symbleButtonClick];
     if(self.isContinue)
     {
         self.arg1 = self.tempArg;
@@ -991,6 +997,7 @@
     self.arg2= 0;
     self.cal = 0;
     self.result = 0;
+    self.isDotMode = false;
   //  self.isContinue=NO;
 }
 -(void)showArg1
@@ -1041,5 +1048,13 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+-(void) symbleButtonClick
+{
+    self.isDotMode=false;
+}
+-(void) nunberButtonClick
+{
+    self.isContinue=NO;
 }
 @end
