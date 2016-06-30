@@ -46,7 +46,12 @@
 @property (nonatomic, assign ) double arg1;
 @property (nonatomic, assign ) double arg2;
 @property (nonatomic, assign ) double result;
+@property (nonatomic, assign ) double tempArg;
 @property (nonatomic, assign ) int cal;//(nil + - x / %, 0,1,2,3,4,5)
+
+@property (nonatomic, assign ) BOOL isContinue;
+@property (nonatomic, assign ) BOOL isDotMode;
+@property (nonatomic, assign) long dotTemp;
 
 -(double) calculatWithSign:(int)cal Arg1:(double)arg1 Arg2:(double)arg2;
 @end
@@ -543,6 +548,7 @@
     [_btnDot setBackgroundImage:[self imageWithColor:[UIColor grayColor]] forState:UIControlStateSelected];
     _btnDot.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_btnDot.layer setBorderWidth:1.0];
+    [_btn0 addTarget:self  action:@selector(btnDotClick:) forControlEvents:UIControlEventTouchUpInside];
     return _btnDot;
     
 }
@@ -606,23 +612,25 @@
 -(double) calculatWithSign:(int) cal Arg1:(double) arg1 Arg2:(double) arg2
 {
     if(cal == 1)
-        return (double)(arg1+arg2);
+        self.tempArg = (double)(arg1+arg2);
     else if(cal==2)
-        return (double)(arg1-arg2);
+        self.tempArg = (double)(arg1-arg2);
     else if(cal==3)
-        return (double)(arg1*arg2);
+        self.tempArg = (double)(arg1*arg2);
     else if(cal==4)
-        return (double)(arg1/arg2);
+        self.tempArg =  (double)(arg1/arg2);
     else if(cal==5)
-        return (double)((int)arg1%(int)arg2);
+        self.tempArg = (double)((int)arg1%(int)arg2);
     else{
         NSLog(@"运算符无效 为%d",cal);
         return 0;
     }
+    return self.tempArg;
 }
 #pragma mark - 按钮事件
 - (void)btn1Click:(UIButton *)sender{
     NSLog(@"BTN 1 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +1;
@@ -636,6 +644,7 @@
 }
 - (void)btn2Click:(UIButton *)sender{
     NSLog(@"BTN 2 clicked");
+   [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +2;
@@ -649,6 +658,7 @@
 }
 - (void)btn3Click:(UIButton *)sender{
     NSLog(@"BTN 3 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +3;
@@ -662,6 +672,7 @@
 }
 - (void)btn4Click:(UIButton *)sender{
     NSLog(@"BTN 4 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +4;
@@ -675,6 +686,7 @@
 }
 - (void)btn5Click:(UIButton *)sender{
     NSLog(@"BTN 5 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +5;
@@ -688,6 +700,7 @@
 }
 - (void)btn6Click:(UIButton *)sender{
     NSLog(@"BTN 6 clicked");
+   [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +6;
@@ -701,6 +714,7 @@
 }
 - (void)btn7Click:(UIButton *)sender{
     NSLog(@"BTN 7 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +7;
@@ -714,6 +728,7 @@
 }
 - (void)btn8Click:(UIButton *)sender{
     NSLog(@"BTN 8 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +8;
@@ -727,6 +742,7 @@
 }
 - (void)btn9Click:(UIButton *)sender{
     NSLog(@"BTN 9 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 +9;
@@ -740,6 +756,7 @@
 }
 - (void)btn0Click:(UIButton *)sender{
     NSLog(@"BTN 0 clicked");
+    [self nunberButtonClick];
     if(self.cal==0)
     {
         self.arg1 = 10 * self.arg1 ;
@@ -760,8 +777,27 @@
     {
         [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
     }
+    else if(self.cal==5 && self.arg2<0)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"错误"]];
+    }
+    //for fun
+    else if(self.cal==5&& self.arg2==0&&self.arg1==0)
+    {
+        [self.resultLabel setText:[NSString stringWithFormat:@"不会!"]];
+        [self clean];
+    }
+//    else if
+//        (self.cal==5 && self.arg2==0 && self.arg1==0)
+//    {
+//        [self.resultLabel setFont:[UIFont systemFontOfSize:40]];
+//        [self.resultLabel setText:[NSString stringWithFormat:@"别闹，给作者点赞去"]];
+//        [self.resultLabel setFont:[UIFont systemFontOfSize:70]];
+//        [self clean];
+//    }
     else
     {
+        self.isContinue=YES;
         self.result = [self calculatWithSign:self.cal Arg1:self.arg1 Arg2:self.arg2];
         [self showResult];
         [self clean];
@@ -770,6 +806,13 @@
 }
 - (void)btnAddClick:(UIButton *)sender{
     NSLog(@"add + clicked");
+    [self symbleButtonClick];
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 1;
+        return ;
+    }
     //first time
     if(self.cal==0)
     {
@@ -796,6 +839,14 @@
 }
 - (void)btnSubClick:(UIButton *)sender{
     NSLog(@"add2 + clicked");
+    [self symbleButtonClick];
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 2;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -823,7 +874,15 @@
 }
 - (void)btnMulClick:(UIButton *)sender{
     NSLog(@"add3 + clicked");
+    [self symbleButtonClick];
     //first time
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 3;
+        return ;
+    }
+
     if(self.cal==0)
     {
         self.cal = 3;
@@ -850,6 +909,14 @@
 }
 - (void)btnDivClick:(UIButton *)sender{
     NSLog(@"add4 + clicked");
+    [self symbleButtonClick];
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 4;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -877,7 +944,11 @@
 }
 - (void)btnCleanClick:(UIButton *)sender{
     [self clean];
+    self.isContinue=NO;
     [self showResult];
+}
+- (void)btnDotClick:(UIButton *)sender{
+    self.isDotMode = YES;
 }
 - (void)btnMinClick:(UIButton *)sender{
     if(self.cal==0)
@@ -892,6 +963,14 @@
     }
 }
 - (void)btnRemClick:(UIButton *)sender{
+    [self symbleButtonClick];
+    if(self.isContinue)
+    {
+        self.arg1 = self.tempArg;
+        self.cal = 5;
+        return ;
+    }
+
     //first time
     if(self.cal==0)
     {
@@ -923,6 +1002,8 @@
     self.arg2= 0;
     self.cal = 0;
     self.result = 0;
+    self.isDotMode = false;
+  //  self.isContinue=NO;
 }
 -(void)showArg1
 {
@@ -972,5 +1053,34 @@
     UIGraphicsEndImageContext();
     
     return image;
+}
+-(void) symbleButtonClick
+{
+    
+    if(self.isDotMode)
+    {
+        if(self.cal==0)
+        {
+            self.arg1 += [self intToDoublePart:self.dotTemp];
+        }
+        else{
+            self.arg2 += [self intToDoublePart:self.dotTemp];
+        }
+    }
+    self.isDotMode=false;
+    self.dotTemp=0;
+}
+-(double)intToDoublePart:(long) num
+{
+    double i=num;
+    while (i>=1)
+    {
+        i/=10;
+    }
+    return i;
+}
+-(void) nunberButtonClick
+{
+    self.isContinue=NO;
 }
 @end
