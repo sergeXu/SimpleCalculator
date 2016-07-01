@@ -631,142 +631,52 @@
 - (void)btn1Click:(UIButton *)sender{
     NSLog(@"BTN 1 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +1;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +1;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:1];
+    
 }
 - (void)btn2Click:(UIButton *)sender{
     NSLog(@"BTN 2 clicked");
-   [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +2;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +2;
-        [self showArg2];
-    }
+    [self nunberButtonClick];
+    [self addingArgsWithSymble:1 AndNum:2];
 }
 - (void)btn3Click:(UIButton *)sender{
     NSLog(@"BTN 3 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +3;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +3;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:3];
 }
 - (void)btn4Click:(UIButton *)sender{
     NSLog(@"BTN 4 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +4;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +4;
-        [self showArg2];
-    }
-}
+    [self addingArgsWithSymble:1 AndNum:4];}
 - (void)btn5Click:(UIButton *)sender{
     NSLog(@"BTN 5 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +5;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +5;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:5];
 }
 - (void)btn6Click:(UIButton *)sender{
     NSLog(@"BTN 6 clicked");
    [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +6;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +6;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:6];
 }
 - (void)btn7Click:(UIButton *)sender{
     NSLog(@"BTN 7 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +7;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +7;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:7];
 }
 - (void)btn8Click:(UIButton *)sender{
     NSLog(@"BTN 8 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +8;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +8;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:8];
 }
 - (void)btn9Click:(UIButton *)sender{
     NSLog(@"BTN 9 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 +9;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 +9;
-        [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:9];
 }
 - (void)btn0Click:(UIButton *)sender{
     NSLog(@"BTN 0 clicked");
     [self nunberButtonClick];
-    if(self.cal==0)
-    {
-        self.arg1 = 10 * self.arg1 ;
-        [self showArg1];
-    }
-    else
-    {
-        self.arg2 = 10 * self.arg2 ;
-         [self showArg2];
-    }
+    [self addingArgsWithSymble:1 AndNum:0];
 }
 - (void)btnEqClick:(UIButton *)sender{
     NSLog(@"eq + clicked");
@@ -1082,5 +992,28 @@
 -(void) nunberButtonClick
 {
     self.isContinue=NO;
+}
+-(void)addingArgsWithSymble:(int)cal AndNum:(int) num
+{
+    if(self.cal==0)
+    {
+        if(self.arg1>=0)
+        {
+        self.arg1 = 10 * self.arg1 +num;
+        }else{
+            self.arg1 = 10 * self.arg1 -num;
+        }
+        [self showArg1];
+    }
+    else
+    {
+        if(self.arg2>=0)
+        {
+            self.arg2 = 10 * self.arg2 +num;
+        }else{
+            self.arg2 = 10 * self.arg2 -num;
+        }
+        [self showArg2];
+    }
 }
 @end
